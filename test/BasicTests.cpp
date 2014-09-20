@@ -1,8 +1,8 @@
 //!
 //! @file 			BasicTests.cpp
 //! @author 		Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
-//! @created		2014-09-18
-//! @last-modified 	2014-09-18
+//! @created		2014-09-19
+//! @last-modified 	2014-09-20
 //! @brief 			Contains basic tests.
 //! @details
 //!					See README.rst in root dir for more info.
@@ -14,48 +14,29 @@
 #include "MUnitTest/api/MUnitTestApi.hpp"
 
 //===== USER SOURCE =====//
-#include "../api/MSmartPtrApi.hpp"
+#include "../api/MChronoApi.hpp"
 
 using namespace MbeddedNinja;
 
-namespace MSmartPtrTestsNs
+namespace MChronoTestsNs
 {
 
 	MTEST(BasicTest)
 	{
-		uint32_t * myInt = new uint32_t(42);
+		UtcTime myUtcTime;
+		myUtcTime.year = 2014;
+		myUtcTime.month = 6;
+		myUtcTime.day = 12;
+		myUtcTime.hour = 15;
+		myUtcTime.minute = 6;
+		myUtcTime.second = 56;
 
-		MSmartPtr<uint32_t> mySmartPtr1(myInt);
+		uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
 
-		CHECK_EQUAL((*mySmartPtr1.count), 1);
-
-		MSmartPtr<uint32_t> mySmartPtr2(mySmartPtr1);
-
-		CHECK_EQUAL((*mySmartPtr2.count), 2);
-
-	}
-
-	MTEST(ScopeTest)
-	{
-		MSmartPtr<uint32_t> mySmartPtr2;
-
-		{
-
-			uint32_t * myInt = new uint32_t(42);
-
-			MSmartPtr<uint32_t> mySmartPtr1(myInt);
-
-			CHECK_EQUAL((*mySmartPtr1.count), 1);
-
-			mySmartPtr2 = mySmartPtr1;
-
-		}
-
-		CHECK_EQUAL(*(mySmartPtr2.count), 1);
-
-		CHECK_EQUAL(*mySmartPtr2, 42);
+		// Make sure conversion to UNIX time is correct
+		CHECK_EQUAL(unixTime, 1402585616);
 
 	}
 
 
-} // namespace MSmartPtrTestsNs
+} // namespace MChronoTestsNs

@@ -1,8 +1,8 @@
 //!
-//! @file				MSmartPtr.cpp
+//! @file				MChrono.cpp
 //! @author				Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
-//! @created			2014-09-18
-//! @last-modified		2014-09-18
+//! @created			2014-09-19
+//! @last-modified		2014-09-20
 //! @brief
 //! @details
 //!						See README.rst in repo root dir for more info.
@@ -25,7 +25,7 @@
 // none
 
 //===== USER SOURCE =====//
-#include "../include/MSmartPtr.hpp"
+#include "../include/MChrono.hpp"
 
 
 
