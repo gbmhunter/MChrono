@@ -17,6 +17,7 @@
 #include "../api/MChronoApi.hpp"
 
 using namespace MbeddedNinja;
+using namespace MChronoNs;
 
 namespace MChronoTestsNs
 {
@@ -25,7 +26,7 @@ namespace MChronoTestsNs
 	{
 		MTEST(LeapYearTest1)
 		{
-			UtcTime myUtcTime;
+			Utc myUtcTime;
 
 			// This encompasses both the year 2000 (which is a leap year)
 			// and the year 2100 (which isn't a leap year).

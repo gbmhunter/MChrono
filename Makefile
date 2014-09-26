@@ -1,9 +1,9 @@
 #
 # @file 			Makefile
-# @author 			Geoffrey Hunter <gbmhunter@gmail.com> (wwww.cladlab.com)
+# @author 			Geoffrey Hunter <gbmhunter@gmail.com> (wwww.mbedded.ninja)
 # @edited 			n/a
 # @created			2014-09-19
-# @last-modified 	2014-09-19
+# @last-modified 	2014-09-26
 # @brief 			Makefile for Linux-based make, to compile and run unit test code.
 # @details
 #					See README in repo root dir for more info.
@@ -13,8 +13,8 @@ SRC_OBJ_FILES := $(patsubst %.cpp,%.o,$(wildcard src/*.cpp))
 SRC_LD_FLAGS :=
 SRC_CC_FLAGS := -Wall -g -c  -I. -I./lib -std=c++0x
 
-DEP_LIB_PATHS := -L ../MAssert -L ../MUnitTest
-DEP_LIBS := -l MAssert -l MUnitTest
+DEP_LIB_PATHS := -L ../MAssert -L ../MUnitTest -L ../MString
+DEP_LIBS := -l MAssert -l MUnitTest -l MString
 DEP_INCLUDE_PATHS := -I../
 
 TEST_CC := g++
@@ -65,6 +65,10 @@ deps :
 	git clone https://github.com/mbedded-ninja/MAssert ../MAssert; \
 	fi;
 	$(MAKE) -C ../MAssert/ all
+	if [ ! -d ../MString ]; then \
+	git clone https://github.com/mbedded-ninja/MString ../MString; \
+	fi;
+	$(MAKE) -C ../MString/ all
 	
 # ======== TEST ========
 	
@@ -103,6 +107,7 @@ clean-deps:
 	@echo " Cleaning deps...";
 	$(MAKE) -C ../MUnitTest/ clean
 	$(MAKE) -C ../MAssert/ clean
+	$(MAKE) -C ../MString/ clean
 	
 clean-ut:
 	@echo " Cleaning test object files..."; $(RM) ./test/*.o

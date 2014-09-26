@@ -17,6 +17,7 @@
 #include "../api/MChronoApi.hpp"
 
 using namespace MbeddedNinja;
+using namespace MChronoNs;
 
 namespace MChronoTestsNs
 {
@@ -26,7 +27,7 @@ namespace MChronoTestsNs
 
 		MTEST(BasicTest1)
 		{
-			UtcTime myUtcTime;
+			Utc myUtcTime;
 			myUtcTime.year = 2014;
 			myUtcTime.month = 6;
 			myUtcTime.day = 12;
@@ -43,7 +44,7 @@ namespace MChronoTestsNs
 
 		MTEST(BasicTest2)
 		{
-			UtcTime myUtcTime;
+			Utc myUtcTime;
 			myUtcTime.year = 2014;
 			myUtcTime.month = 1;
 			myUtcTime.day = 1;
@@ -60,7 +61,7 @@ namespace MChronoTestsNs
 
 		MTEST(BasicTest3)
 		{
-			UtcTime myUtcTime;
+			Utc myUtcTime;
 			myUtcTime.year = 2098;
 			myUtcTime.month = 1;
 			myUtcTime.day = 1;
