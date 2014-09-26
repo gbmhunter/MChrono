@@ -2,7 +2,7 @@
 //! @file 			BasicTests.cpp
 //! @author 		Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created		2014-09-19
-//! @last-modified 	2014-09-20
+//! @last-modified 	2014-09-26
 //! @brief 			Contains basic tests.
 //! @details
 //!					See README.rst in root dir for more info.
@@ -21,22 +21,59 @@ using namespace MbeddedNinja;
 namespace MChronoTestsNs
 {
 
-	MTEST(BasicTest)
+	MTEST_GROUP(BasicTests)
 	{
-		UtcTime myUtcTime;
-		myUtcTime.year = 2014;
-		myUtcTime.month = 6;
-		myUtcTime.day = 12;
-		myUtcTime.hour = 15;
-		myUtcTime.minute = 6;
-		myUtcTime.second = 56;
 
-		uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
+		MTEST(BasicTest1)
+		{
+			UtcTime myUtcTime;
+			myUtcTime.year = 2014;
+			myUtcTime.month = 6;
+			myUtcTime.day = 12;
+			myUtcTime.hour = 15;
+			myUtcTime.minute = 6;
+			myUtcTime.second = 56;
 
-		// Make sure conversion to UNIX time is correct
-		CHECK_EQUAL(unixTime, 1402585616);
+			uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
 
+			// Make sure conversion to UNIX time is correct
+			CHECK_EQUAL(unixTime, 1402585616);
+
+		}
+
+		MTEST(BasicTest2)
+		{
+			UtcTime myUtcTime;
+			myUtcTime.year = 2014;
+			myUtcTime.month = 1;
+			myUtcTime.day = 1;
+			myUtcTime.hour = 0;
+			myUtcTime.minute = 0;
+			myUtcTime.second = 0;
+
+			uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
+
+			// Make sure conversion to UNIX time is correct
+			CHECK_EQUAL(unixTime, 1388534400);
+
+		}
+
+		MTEST(BasicTest3)
+		{
+			UtcTime myUtcTime;
+			myUtcTime.year = 2098;
+			myUtcTime.month = 1;
+			myUtcTime.day = 1;
+			myUtcTime.hour = 0;
+			myUtcTime.minute = 0;
+			myUtcTime.second = 0;
+
+			uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
+
+			// Make sure conversion to UNIX time is correct
+			CHECK_EQUAL(unixTime, 4039372800);
+
+		}
 	}
-
 
 } // namespace MChronoTestsNs

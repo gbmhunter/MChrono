@@ -11,8 +11,8 @@ A microcontroller friendly C++ timekeeping module.
 
 - Author: gbmhunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 - First Ever Commit: 2014-09-19
-- Last Modified: 2014-09-20
-- Version: v1.1.0.0
+- Last Modified: 2014-09-26
+- Version: v1.2.0.0
 - Company: mbedded.ninja
 - Project: MToolkit Module
 - Language: C++
@@ -62,6 +62,7 @@ Changelog
 ========= ========== ===================================================================================================
 Version   Date       Comment
 ========= ========== ===================================================================================================
+v1.2.0.0  2014-09-26 Made logic aware of the divisible by 100/400 leap year rule (in where 2100 will not be a leap year, 2400 will e.t.c), and added appropriate unit tests, closes #3.
 v1.1.0.0  2014-09-20 Added 'UtcTime' object and 'MChrono::UtcToUnix()' method with one unit test, closes #1, closes #2.
 v1.0.0.0  2014-09-19 Initial commit. No actual code added to repo yet, just skeleton files.
 ========= ========== ===================================================================================================

@@ -146,7 +146,12 @@ namespace MbeddedNinja
 			uint16_t numLeapYears = 0;
 			for(uint16_t x = startYear; x < endYear; x++)
 			{
-				if(x % 4 == 0)
+				// The following expression says, yes, this is a leap year, if:
+				// the year is divisible by four AND
+				// the year is NOT divisble by 100, unless it is also
+				// divisble by 400. e.g. 2000 is a leap year, 2100 is not a leap year,
+				// neither is 2200 or 2300, but 2400 is (400 year cycle).
+				if((x % 4 == 0) && !((x % 100 == 0) && !(x % 400 == 0)))
 				{
 					std::cout << "Year '" << x << "' was a leap year." << std::endl;
 					numLeapYears++;
