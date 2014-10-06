@@ -1,8 +1,8 @@
 //!
-//! @file 			UtcStringValidationTests.cpp
+//! @file 			UtcStringFormattingValidationTests.cpp
 //! @author 		Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created		2014-09-26
-//! @last-modified 	2014-09-26
+//! @last-modified 	2014-10-07
 //! @brief 			Makes sure that the Validate() method on a UTC string works o.k.
 //! @details
 //!					See README.rst in root dir for more info.
@@ -22,7 +22,7 @@ using namespace MChronoNs;
 namespace MChronoTestsNs
 {
 
-	MTEST_GROUP(UtcStringValidationTests)
+	MTEST_GROUP(UtcStringFormattingValidationTests)
 	{
 
 		MTEST(UtcValidTest)
@@ -80,6 +80,6 @@ namespace MChronoTestsNs
 			CHECK_EQUAL(Utc::ValidateString("2014/09/26 15:22:33"), false);
 		}
 
-	} // MTEST_GROUP(UtcStringValidationTests)
+	} // MTEST_GROUP(UtcStringFormattingValidationTests)
 
 } // namespace MChronoTestsNs

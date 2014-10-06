@@ -2,7 +2,7 @@
 //! @file				TimeConstants.hpp
 //! @author				Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created			2014-09-26
-//! @last-modified		2014-09-26
+//! @last-modified		2014-10-07
 //! @brief
 //! @details
 //!						See README.rst in repo root dir for more info.
@@ -24,7 +24,8 @@
 
 namespace MbeddedNinja
 {
-
+	// No forward declarations needed
+	// here
 }
 
 //===============================================================================================//
@@ -33,7 +34,7 @@ namespace MbeddedNinja
 
 //===== SYSTEM LIBRARIES =====//
 #include <stdint.h>		// uint8_t, uint32_t, e.t.c
-#include <iostream>
+//#include <iostream>
 
 //===== USER SOURCE =====//
 #include "./Utc.hpp"
@@ -84,7 +85,12 @@ namespace MbeddedNinja
 		constexpr uint16_t daysInLeapYear = 366;
 		constexpr uint8_t numHoursInDay = 24;
 		constexpr uint8_t numMinsInHour = 60;
-		constexpr uint8_t numSecsInMin = 60;
+
+		//! @brief		The number of seconds in a normal minute (one which hasn't had a leap second added to or removed from).
+		constexpr uint8_t numSecsInNormalMin = 60;
+
+		//! @brief		This is to account for minutes which could have leap seconds added to them.
+		constexpr uint8_t maxNumSecsInAnyMin = 61;
 
 	} // namespace MChronoNs
 } // namespace MbeddedNinja

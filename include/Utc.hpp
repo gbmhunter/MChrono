@@ -2,7 +2,7 @@
 //! @file				Utc.hpp
 //! @author				Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created			2014-09-26
-//! @last-modified		2014-09-26
+//! @last-modified		2014-10-07
 //! @brief				Declaration of the UTC object used for time keeping.
 //! @details
 //!						See README.rst in repo root dir for more info.

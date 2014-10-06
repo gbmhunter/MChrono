@@ -2,7 +2,7 @@
 //! @file				Utc.cpp
 //! @author				Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created			2014-09-26
-//! @last-modified		2014-09-26
+//! @last-modified		2014-10-07
 //! @brief				Definition of the UTC object used for time keeping.
 //! @details
 //!						See README.rst in repo root dir for more info.
@@ -157,7 +157,7 @@ namespace MbeddedNinja
 
 			// Check hour is within valid range
 			uint32_t hour = strtoul(&utcString[11], nullptr, 10);
-			if(hour > numHoursInDay)
+			if(hour >= numHoursInDay)
 				return false;
 
 			// Make sure character 14 is a colon
@@ -174,7 +174,7 @@ namespace MbeddedNinja
 
 			// Check minute is within valid range
 			uint32_t minute = strtoul(&utcString[14], nullptr, 10);
-			if(minute > numMinsInHour)
+			if(minute >= numMinsInHour)
 				return false;
 
 			// Make sure character 17 is a colon
@@ -191,7 +191,7 @@ namespace MbeddedNinja
 
 			// Check second is within valid range
 			uint32_t second = strtoul(&utcString[17], nullptr, 10);
-			if(second > numSecsInMin)
+			if(second >= maxNumSecsInAnyMin)
 				return false;
 
 			// Make sure character 20 is a terminating null

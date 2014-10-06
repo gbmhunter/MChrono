@@ -150,7 +150,7 @@ namespace MbeddedNinja
 				//std::cout << "Num mins = '" << numMins << "'." << std::endl;
 
 				// Which is how many seconds
-				uint64_t numSecs = numMins * numSecsInMin;
+				uint64_t numSecs = numMins * numSecsInNormalMin;
 				//std::cout << "Num secs = '" << numSecs << "'." << std::endl;
 
 				return numSecs;
@@ -183,7 +183,7 @@ namespace MbeddedNinja
 					}
 				}
 
-				uint64_t numSecs = numDays*numHoursInDay*numMinsInHour*numSecsInMin;
+				uint64_t numSecs = numDays*numHoursInDay*numMinsInHour*numSecsInNormalMin;
 
 				//std::cout << "Num secs from start of month '" << startMonth <<
 				//		"' to start of month '" << endMonth <<
@@ -194,21 +194,21 @@ namespace MbeddedNinja
 
 			static uint64_t DaysToSecs(uint8_t numDays)
 			{
-				uint64_t numSecs = numDays*numHoursInDay*numMinsInHour*numSecsInMin;
+				uint64_t numSecs = numDays*numHoursInDay*numMinsInHour*numSecsInNormalMin;
 
 				return numSecs;
 			}
 
 			static uint64_t HoursToSecs(uint8_t numHours)
 			{
-				uint64_t numSecs = numHours*numMinsInHour*numSecsInMin;
+				uint64_t numSecs = numHours*numMinsInHour*numSecsInNormalMin;
 
 				return numSecs;
 			}
 
 			static uint64_t MinsToSecs(uint8_t numMins)
 			{
-				uint64_t numSecs = numMins*numSecsInMin;
+				uint64_t numSecs = numMins*numSecsInNormalMin;
 
 				return numSecs;
 			}
