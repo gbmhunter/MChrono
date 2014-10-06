@@ -12,7 +12,7 @@ A microcontroller friendly C++ timekeeping module.
 - Author: gbmhunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 - First Ever Commit: 2014-09-19
 - Last Modified: 2014-10-07
-- Version: v1.3.1.0
+- Version: v1.3.2.0
 - Company: mbedded.ninja
 - Project: MToolkit Module
 - Language: C++
@@ -73,6 +73,7 @@ Changelog
 ========= ========== ===================================================================================================
 Version   Date       Comment
 ========= ========== ===================================================================================================
+v1.3.2.0  2014-10-07 Added unit tests to make sure 'Utc::ValidateString()' takes into account the different number of days in each month (including Feb in leap years), closes #10.
 v1.3.1.0  2014-10-07 'Utc::Validate()' allows for 61 seconds in a minute (to account for leap seconds), closes #9. Added unit tests which make sure 'Utc::Validate()' fails if month, day, hour, minute and second are outside their valid range, closes #8.
 v1.3.0.0  2014-09-26 Wrapped all MChrono objects in the MChrono namespace, closes #5. Moved classes in 'MChrono.hpp' into their own files, closes #6. Added C standard library dependencies to the README. Added 'MChrono::IsLeapYear()' method, closes #7. Added ability to decode UTC string into a UTC object, closes #4.
 v1.2.0.0  2014-09-26 Made logic aware of the divisible by 100/400 leap year rule (in where 2100 will not be a leap year, 2400 will e.t.c), and added appropriate unit tests, closes #3.
