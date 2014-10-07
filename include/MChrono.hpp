@@ -2,7 +2,7 @@
 //! @file				MChrono.hpp
 //! @author				Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created			2014-09-20
-//! @last-modified		2014-10-07
+//! @last-modified		2014-10-08
 //! @brief				Contains methods which are not attached to any other specific time-related class.
 //! @details
 //!						See README.rst in repo root dir for more info.
@@ -71,7 +71,7 @@ namespace MbeddedNinja
 			//! @brief		Converts UTC time to Unix time.
 			//! @param[in]	utcTime		The UTC time that you wish to convert to UNIX time.
 			//! @returns	The UNIX time.
-			static uint64_t UtcToUnix(const Utc * utcTime);
+			static int64_t UtcToUnix(const Utc * utcTime);
 
 			//! @brief		Converts the specified year range into seconds, taking into account the entire first year but not the last year.
 			//! @details	Takes into account leap years, but does not take into account leap seconds.
@@ -107,45 +107,6 @@ namespace MbeddedNinja
 			//! @warning	Does not take into account leap seconds.
 			static uint64_t MinsToSecs(uint8_t numMins);
 
-			//======================================================================================//
-			//============================ PUBLIC OPERATOR OVERLOAD DECLARATIONS ===================//
-			//======================================================================================//
-
-
-
-			//======================================================================================//
-			//================================= PUBLIC VARIABLES ===================================//
-			//======================================================================================//
-
-
-
-			private:
-
-				//======================================================================================//
-				//=================================== PRIVATE METHODS ==================================//
-				//======================================================================================//
-
-				// none
-
-				//======================================================================================//
-				//================================== PRIVATE VARIABLES =================================//
-				//======================================================================================//
-
-
-
-			protected:
-
-				//======================================================================================//
-				//=================================== PROTECTED METHODS ================================//
-				//======================================================================================//
-
-				// none
-
-				//======================================================================================//
-				//================================== PROTECTED VARIABLES ===============================//
-				//======================================================================================//
-
-				// none
 			
 		}; // class MChrono
 

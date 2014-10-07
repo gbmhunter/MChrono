@@ -2,7 +2,7 @@
 //! @file				MChrono.cpp
 //! @author				Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created			2014-09-19
-//! @last-modified		2014-10-07
+//! @last-modified		2014-10-08
 //! @brief				Contains methods which are not attached to any other specific time-related class.
 //! @details
 //!						See README.rst in repo root dir for more info.
@@ -51,8 +51,10 @@ namespace MbeddedNinja
 				return false;
 		}
 
-		uint64_t MChrono::UtcToUnix(const Utc * utcTime)
+		int64_t MChrono::UtcToUnix(const Utc * utcTime)
 		{
+			// Need to add support for negative Unix times!
+
 			// Find how many years from Epoch
 			//uint16_t numYears = utcTime.year - epoch.year;
 			//std::cout << "Num years = '" << numYears << "'." << std::endl;
@@ -84,7 +86,7 @@ namespace MbeddedNinja
 				numSecsFromStartOfHourToCurrMin +
 				numSecsFromStartOfMinToCurrSec;
 
-			return totalNumSecs;
+			return (int64_t)totalNumSecs;
 		}
 
 		uint64_t MChrono::YearsToSecs(uint16_t startYear, uint16_t endYear)

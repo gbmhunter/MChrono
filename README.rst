@@ -11,8 +11,8 @@ A microcontroller friendly C++ timekeeping module.
 
 - Author: gbmhunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 - First Ever Commit: 2014-09-19
-- Last Modified: 2014-10-07
-- Version: v1.3.4.0
+- Last Modified: 2014-10-08
+- Version: v1.3.5.0
 - Company: mbedded.ninja
 - Project: MToolkit Module
 - Language: C++
@@ -73,6 +73,7 @@ Changelog
 ========= ========== ===================================================================================================
 Version   Date       Comment
 ========= ========== ===================================================================================================
+v1.3.5.0  2014-10-08 Changed Unix time from uint64_t to int64_t type, closes #13.
 v1.3.4.0  2014-10-07 Made Utc class into 'MChrono::UtcToUnix()' const and a pointer.
 v1.3.3.0  2014-10-07 Moved function definitions that are in 'MChrono'.hpp into 'MChrono.cpp', closes #11. Added more documentation to 'MChrono.hpp'.
 v1.3.2.0  2014-10-07 Added unit tests to make sure 'Utc::ValidateString()' takes into account the different number of days in each month (including Feb in leap years), closes #10.
