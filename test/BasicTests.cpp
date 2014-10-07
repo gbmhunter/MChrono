@@ -2,7 +2,7 @@
 //! @file 			BasicTests.cpp
 //! @author 		Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created		2014-09-19
-//! @last-modified 	2014-09-26
+//! @last-modified 	2014-10-07
 //! @brief 			Contains basic tests.
 //! @details
 //!					See README.rst in root dir for more info.
@@ -35,7 +35,7 @@ namespace MChronoTestsNs
 			myUtcTime.minute = 6;
 			myUtcTime.second = 56;
 
-			uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
+			uint64_t unixTime = MChrono::UtcToUnix(&myUtcTime);
 
 			// Make sure conversion to UNIX time is correct
 			CHECK_EQUAL(unixTime, 1402585616);
@@ -52,7 +52,7 @@ namespace MChronoTestsNs
 			myUtcTime.minute = 0;
 			myUtcTime.second = 0;
 
-			uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
+			uint64_t unixTime = MChrono::UtcToUnix(&myUtcTime);
 
 			// Make sure conversion to UNIX time is correct
 			CHECK_EQUAL(unixTime, 1388534400);
@@ -69,7 +69,7 @@ namespace MChronoTestsNs
 			myUtcTime.minute = 0;
 			myUtcTime.second = 0;
 
-			uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
+			uint64_t unixTime = MChrono::UtcToUnix(&myUtcTime);
 
 			// Make sure conversion to UNIX time is correct
 			CHECK_EQUAL(unixTime, 4039372800);

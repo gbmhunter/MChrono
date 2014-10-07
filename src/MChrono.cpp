@@ -51,30 +51,30 @@ namespace MbeddedNinja
 				return false;
 		}
 
-		uint64_t MChrono::UtcToUnix(Utc utcTime)
+		uint64_t MChrono::UtcToUnix(const Utc * utcTime)
 		{
 			// Find how many years from Epoch
 			//uint16_t numYears = utcTime.year - epoch.year;
 			//std::cout << "Num years = '" << numYears << "'." << std::endl;
 
 			// Find num seconds to current year
-			uint64_t numSecsToCurrYear = MChrono::YearsToSecs(epoch.year, utcTime.year);
+			uint64_t numSecsToCurrYear = MChrono::YearsToSecs(epoch.year, utcTime->year);
 			//std::cout << "Num secs to curr year = '" << numSecsToCurrYear << "'." << std::endl;
 
 
 			uint64_t numSecsFromStartOfYearToCurrMonth =
-					MChrono::MonthsToSecs(utcTime.year, 1, utcTime.month);
+					MChrono::MonthsToSecs(utcTime->year, 1, utcTime->month);
 			//std::cout << "Num secs to curr month = '" << numSecsFromStartOfYearToCurrMonth << "'." << std::endl;
 
 			// Do not include current day
-			uint64_t numSecsFromStartOfMonthToCurrDay = MChrono::DaysToSecs(utcTime.day - 1);
+			uint64_t numSecsFromStartOfMonthToCurrDay = MChrono::DaysToSecs(utcTime->day - 1);
 			//std::cout << "Num secs to curr day = '" << numSecsFromStartOfMonthToCurrDay << "'." << std::endl;
 
-			uint64_t numSecsFromStartOfDayToCurrHour = MChrono::HoursToSecs(utcTime.hour);
+			uint64_t numSecsFromStartOfDayToCurrHour = MChrono::HoursToSecs(utcTime->hour);
 
-			uint64_t numSecsFromStartOfHourToCurrMin = MChrono::MinsToSecs(utcTime.minute);
+			uint64_t numSecsFromStartOfHourToCurrMin = MChrono::MinsToSecs(utcTime->minute);
 
-			uint64_t numSecsFromStartOfMinToCurrSec = utcTime.second;
+			uint64_t numSecsFromStartOfMinToCurrSec = utcTime->second;
 
 			uint64_t totalNumSecs =
 				numSecsToCurrYear +

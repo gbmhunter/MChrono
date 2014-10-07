@@ -2,7 +2,7 @@
 //! @file 			LeapYearTests.cpp
 //! @author 		Geoffrey Hunter <gbmhunter@gmail.com> (www.mbedded.ninja)
 //! @created		2014-09-26
-//! @last-modified 	2014-09-26
+//! @last-modified 	2014-10-07
 //! @brief 			Contains tests to make sure leap years are handled correctly in time conversions.
 //! @details
 //!					See README.rst in root dir for more info.
@@ -37,7 +37,7 @@ namespace MChronoTestsNs
 			myUtcTime.minute = 0;
 			myUtcTime.second = 0;
 
-			uint64_t unixTime = MChrono::UtcToUnix(myUtcTime);
+			uint64_t unixTime = MChrono::UtcToUnix(&myUtcTime);
 
 			// Make sure conversion to UNIX time is correct
 

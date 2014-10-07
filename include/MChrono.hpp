@@ -68,10 +68,10 @@ namespace MbeddedNinja
 			//! @returns	True if the provided year is a leap year, otherwise false.
 			static bool IsLeapYear(uint16_t year);
 
-			//! @brief		Converts UTC time to UNIX time.
+			//! @brief		Converts UTC time to Unix time.
 			//! @param[in]	utcTime		The UTC time that you wish to convert to UNIX time.
 			//! @returns	The UNIX time.
-			static uint64_t UtcToUnix(Utc utcTime);
+			static uint64_t UtcToUnix(const Utc * utcTime);
 
 			//! @brief		Converts the specified year range into seconds, taking into account the entire first year but not the last year.
 			//! @details	Takes into account leap years, but does not take into account leap seconds.
